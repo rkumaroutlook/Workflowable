@@ -17,7 +17,7 @@ require_dependency "workflowable/application_controller"
 
 module Workflowable
   class WorkflowsController < ApplicationController
-    before_filter :load_workflow, only: [:show, :edit, :update, :destroy, :stages, :configure_stages]
+    before_action :load_workflow, only: [:show, :edit, :update, :destroy, :stages, :configure_stages]
     def index
       @workflows = Workflowable::Workflow.order(:name)
     end
